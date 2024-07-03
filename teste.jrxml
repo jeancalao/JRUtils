@@ -1,0 +1,198 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="teste" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c7c73ca6-3233-45c9-a536-04ab69608176">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="corp1_qa"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<dataset name="Dataset1" uuid="c550f1c5-2587-4750-8fc8-50dee6b266f2">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="corp1_qa"/>
+		<query language="sql"><![CDATA[]]></query>
+	</dataset>
+	<query language="sql"><![CDATA[select cfordpro.nrordpro || '/' || lpad(cfordpro.suordpro,3,'0') nrordpro , 
+           cfordpro.cfordpro_id, 
+           cfordpro.dtprogra , 
+           cfordpro.dtreafim,
+            cfevento.cdevento, 
+            cfplapro.nrplapro, 
+            cfmacrop.nrmacrop, 
+            epprodut.cdartigo, 
+            epprodut.dsprodut,
+            eporigem.cdoripro,
+            cfordpro.dsobserv,
+            cfunipro.cdunipro || ' - ' || cfunipro.dsunipro
+from prcf.cfordpro  , prcf.cfevento, prcf.cfplapro, prcf.cformcop, prcf.cfmacrop, epct.epprodut, epct.eporigem, prcf.cfunipro
+where cfevento.cfeventop_id = cfordpro.cfeventop_id
+and cfplapro.cfplapro_id = cfordpro.cfplapro_id
+and cformcop.cformcop_id = cfordpro.cformcop_id
+and cfmacrop.cfmacrop_id  = cformcop.cfmacrop_id
+and epprodut.epprodut_id = cfordpro.epprodut_id_obj
+and eporigem.eporigem_id = epprodut.eporigem_id
+and cfunipro.cfunipro_id = cfordpro.cfunipro_id
+and rownum < 11
+]]></query>
+	<field name="NRORDPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NRORDPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="NRORDPRO"/>
+	</field>
+	<field name="CFORDPRO_ID" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="CFORDPRO_ID"/>
+		<property name="com.jaspersoft.studio.field.label" value="CFORDPRO_ID"/>
+	</field>
+	<field name="DTPROGRA" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="DTPROGRA"/>
+		<property name="com.jaspersoft.studio.field.label" value="DTPROGRA"/>
+	</field>
+	<field name="DTREAFIM" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="DTREAFIM"/>
+		<property name="com.jaspersoft.studio.field.label" value="DTREAFIM"/>
+	</field>
+	<field name="CDEVENTO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CDEVENTO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CDEVENTO"/>
+	</field>
+	<field name="NRPLAPRO" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="NRPLAPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="NRPLAPRO"/>
+	</field>
+	<field name="NRMACROP" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="NRMACROP"/>
+		<property name="com.jaspersoft.studio.field.label" value="NRMACROP"/>
+	</field>
+	<field name="CDARTIGO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CDARTIGO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CDARTIGO"/>
+	</field>
+	<field name="DSPRODUT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DSPRODUT"/>
+		<property name="com.jaspersoft.studio.field.label" value="DSPRODUT"/>
+	</field>
+	<field name="CDORIPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CDORIPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CDORIPRO"/>
+	</field>
+	<field name="DSOBSERV" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DSOBSERV"/>
+		<property name="com.jaspersoft.studio.field.label" value="DSOBSERV"/>
+	</field>
+	<field name="CFUNIPRO.CDUNIPRO||'-'||CFUNIPRO.DSUNIPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CFUNIPRO.CDUNIPRO||'-'||CFUNIPRO.DSUNIPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CFUNIPRO.CDUNIPRO||'-'||CFUNIPRO.DSUNIPRO"/>
+	</field>
+	<background splitType="Stretch"/>
+	<detail>
+		<band height="703" splitType="Stretch">
+			<element kind="rectangle" uuid="52d00915-6142-400b-bb6a-59229d81afec" x="283" y="30" width="141" height="41">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="rectangle" uuid="a7793236-3db2-4a96-bff9-bb3cd168e5fb" x="170" y="30" width="55" height="41">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="rectangle" uuid="04c066e6-9a73-417a-a827-c839aeed8aa6" x="69" y="30" width="43" height="41">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="rectangle" uuid="d5ae10cc-7002-4222-8db7-3e91a96b0379" x="-6" y="30" width="75" height="41">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="textField" uuid="68bc1cba-4d82-443f-8b03-abb10fe8d3ef" x="453" y="6" width="100" height="14" bold="true" vTextAlign="Top">
+				<expression><![CDATA[$F{NRORDPRO}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3f90255e-183b-426f-a283-4881c5280642"/>
+			</element>
+			<element kind="staticText" uuid="648ecebf-8835-4d71-adff-26905202f8c2" x="-6" y="7" width="100" height="30" fontName="Tahoma" fontSize="14.0">
+				<text><![CDATA[Cia Hering]]></text>
+			</element>
+			<element kind="line" uuid="dbc7ddb9-6bc0-4a97-a2b0-660fba0f1c25" x="-4" y="26" width="430" height="1"/>
+			<element kind="staticText" uuid="9028f5dd-abd5-4b4a-a1ff-014a7b904a8d" x="-5" y="32" width="72" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Prev. Início Costura]]></text>
+			</element>
+			<element kind="staticText" uuid="3c342fcc-5894-4ba2-a9b9-5c5706229079" x="71" y="32" width="39" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Pedido]]></text>
+			</element>
+			<element kind="rectangle" uuid="40acc617-69a0-48f5-8473-8276b644ebb0" x="113" y="30" width="55" height="41">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="staticText" uuid="a54da4db-9450-4a36-9d55-3077cc5ea02b" x="115" y="32" width="54" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Solicitação]]></text>
+			</element>
+			<element kind="staticText" uuid="e42f8b29-31c4-4bf3-95df-8a4d3af3e643" x="172" y="32" width="54" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Plano]]></text>
+			</element>
+			<element kind="rectangle" uuid="7a772e79-cc8d-4f6e-a708-ec58143096ca" x="227" y="30" width="55" height="41">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="staticText" uuid="55a4e503-8810-4aaa-8f2d-a999bba3896d" x="229" y="32" width="54" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Cota/Mês]]></text>
+			</element>
+			<element kind="staticText" uuid="50e802fe-65f6-4ab7-aabe-60cf5b9ff97f" x="285" y="32" width="54" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Emissão]]></text>
+			</element>
+			<element kind="rectangle" uuid="19f576e1-8a66-4bbd-94e4-e3e33b35e898" x="-6" y="71" width="431" height="41">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="staticText" uuid="30b2cb89-d9e3-4311-b7c7-cb74ed858e9f" x="-4" y="71" width="54" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Artigo]]></text>
+			</element>
+			<element kind="rectangle" uuid="a9294470-5bdd-4d03-b0a4-fc28f27be057" x="-6" y="113" width="431" height="41">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="line" uuid="0921d37e-b05c-402a-9297-02faf2fd68cd" x="-6" y="156" width="559" height="1"/>
+			<element kind="rectangle" uuid="0b4ac93c-5062-4d73-bd19-7f2d87fb5794" x="-6" y="184" width="565" height="206"/>
+			<element kind="textField" uuid="f594d67e-b470-4671-b73e-453ee85e7b8b" x="0" y="50" width="60" height="20">
+				<expression><![CDATA[$F{DTPROGRA}]]></expression>
+			</element>
+			<element kind="textField" uuid="4f8811c9-9dea-46cc-8210-d2b67ce58eaa" x="2" y="90" width="39" height="20">
+				<expression><![CDATA[$F{CDORIPRO}]]></expression>
+			</element>
+			<element kind="textField" uuid="85649917-6847-444e-8ddf-a5a649eb6cf8" x="49" y="91" width="66" height="20">
+				<expression><![CDATA[$F{CDARTIGO}]]></expression>
+			</element>
+			<element kind="textField" uuid="f1fb9a00-356f-4e0a-9d10-640a6c5cc2d0" x="120" y="91" width="179" height="20">
+				<expression><![CDATA[$F{DSPRODUT}]]></expression>
+			</element>
+			<element kind="textField" uuid="878bd59c-7f1c-4e9e-b61e-00732db88337" x="115" y="52" width="52" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{NRMACROP}]]></expression>
+			</element>
+			<element kind="textField" uuid="b379117c-b68b-4efc-97b3-4c638fc01a8b" x="171" y="52" width="52" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{NRPLAPRO}]]></expression>
+			</element>
+			<element kind="textField" uuid="7b8e1453-ecde-45eb-b855-502e6af695e4" x="289" y="53" width="111" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{DTPROGRA}]]></expression>
+			</element>
+			<element kind="textField" uuid="5eea80e4-05ae-41dc-9ad3-a51403a6b5a5" x="430" y="120" width="111" height="20" hTextAlign="Center">
+				<expression><![CDATA[$F{CFUNIPRO.CDUNIPRO||'-'||CFUNIPRO.DSUNIPRO}]]></expression>
+			</element>
+			<element kind="staticText" uuid="b80ab03b-8e83-4126-a060-44da9ab69e94" x="-4" y="166" width="34" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Fase]]></text>
+			</element>
+			<element kind="staticText" uuid="fc52726a-e41e-4f87-b418-bf46634aa538" x="28" y="166" width="55" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Total Peças]]></text>
+			</element>
+			<element kind="staticText" uuid="2e04e0a3-9bb0-4a5a-87b1-160083e0a94e" x="84" y="166" width="26" height="18" fontName="Arial" fontSize="8.0">
+				<text><![CDATA[Tam.]]></text>
+			</element>
+			<element kind="line" uuid="c0cdff57-580b-4a1b-a280-958e99ef51ab" x="29" y="184" width="1" height="206"/>
+			<element kind="line" uuid="11f572c7-3c3e-4077-b4d1-807436417d96" x="74" y="184" width="1" height="206"/>
+			<element kind="line" uuid="51ce2448-c72f-4af2-877d-c4a97723e8b2" x="110" y="185" width="1" height="206"/>
+			<element kind="line" uuid="cbde3704-1524-46db-b604-646eb2d144fe" x="144" y="184" width="1" height="206"/>
+			<element kind="line" uuid="22dcc7d5-10fc-447f-86f8-6893c49f89ce" x="174" y="185" width="1" height="206"/>
+			<element kind="line" uuid="a18c08f7-10ec-48b2-8b42-4eb7d8b59eea" x="205" y="184" width="1" height="206"/>
+			<element kind="line" uuid="8bfb4fa3-00c2-4457-be02-2fdeddb54825" x="235" y="183" width="1" height="206"/>
+			<element kind="line" uuid="8118f465-0f75-4b11-9e28-5c63c8ffaf1a" x="265" y="183" width="1" height="206"/>
+			<element kind="line" uuid="c7b0058a-22db-420e-891a-7f7b405d0627" x="295" y="183" width="1" height="206"/>
+			<element kind="line" uuid="fb014327-b161-4f15-8494-70549e03b36a" x="327" y="183" width="1" height="206"/>
+			<element kind="line" uuid="6a5ff0da-6260-4555-9a61-e39b7e4791ef" x="360" y="183" width="1" height="206"/>
+			<element kind="line" uuid="1191632b-b61b-438b-97a7-65a810bb295e" x="392" y="184" width="1" height="206"/>
+			<element kind="line" uuid="5d7a7c97-b289-447d-a188-b44fbb2a5aec" x="427" y="183" width="1" height="206"/>
+			<element kind="line" uuid="71a5c17e-2eeb-4025-9e0c-359d73ed0f12" x="465" y="183" width="1" height="206"/>
+			<element kind="line" uuid="2908d538-4557-4ece-ac03-ae27e5a17d84" x="498" y="183" width="1" height="206"/>
+			<element kind="line" uuid="76978b88-2a55-4c11-9ebf-beee0e5ac02f" x="531" y="182" width="1" height="206"/>
+			<element kind="textField" uuid="8dc6eac4-d763-455c-997a-161427af152f" x="-5" y="410" width="563" height="100" hTextAlign="Left">
+				<expression><![CDATA[$F{DSOBSERV}]]></expression>
+				<box>
+					<pen lineWidth="0.04"/>
+					<topPen lineWidth="0.04" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.04" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.04" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.04" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+</jasperReport>
