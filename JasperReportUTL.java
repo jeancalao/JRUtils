@@ -27,7 +27,7 @@ import java.util.Map;
 public class JasperReportUTL {
     public static String JasperReport(String[] arquivo) {
         if (arquivo.length == 0) {
-           arquivo[1] = "C:\\Users\\Usuario\\JaspersoftWorkspace\\MyReports\\bin\\teste.jrxml";
+           arquivo[1] = "C:\\relats\\teste.jrxml";
         }
         main(arquivo);
         return "Relatorio Executado!";
@@ -45,7 +45,7 @@ public class JasperReportUTL {
             connection = DriverManager.getConnection(dbURL, username, password);
 
             // Caminho para o arquivo .jasper compilado
-            String reportPath = "C:\\Users\\Usuario\\JaspersoftWorkspace\\MyReports\\bin\\teste.jrxml";
+            String reportPath = "C:\\relats\\teste.jrxml";
 
             // Parâmetros a serem passados para o relatório
             //Map<String, Object> parameters = new HashMap<>();
